@@ -13,7 +13,6 @@ module Funky
         parameters: chat_params
       )
     rescue => e
-      Rails.logger.error(e.message)
       {error: e.message}
     end
 

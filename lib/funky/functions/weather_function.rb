@@ -6,7 +6,7 @@
 module Funky
   module Functions
     class WeatherFunction < BaseFunction
-      def execute(params = {})
+      def execute
         weather_info = {
           location: parsed_response["location"],
           temperature: 98,

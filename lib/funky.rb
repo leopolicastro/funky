@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "funky/version"
-require "openai"
 
 module Funky
   class Error < StandardError; end
@@ -32,6 +31,7 @@ module Funky
       @temperature = temperature
       @include_functions = include_functions
       @params = params
+      @response = {}
       history.chronicle("system", initial_prompt)
     end
 
@@ -42,11 +42,14 @@ module Funky
       Funky::Functions::Handler.new(self).handle if function_present?
 
       history.chronicle("assistant", last_response)
+      last_response
     end
 
     def last_response
       response.dig("choices", 0, "message", "content")
     end
+
+    private
 
     def function_present?
       !response.dig("choices", 0, "message", "function_call").nil?

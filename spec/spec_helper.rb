@@ -1,8 +1,19 @@
 # frozen_string_literal: true
 
 require "funky"
+require "byebug"
 require "dotenv/load"
 require "vcr"
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/vcr_cassettes"
+  config.hook_into :webmock
+end
+
+Funky.config do |config|
+  config.functions_path = "/Users/leopolicastro/repos/funky/lib/funky/functions/"
+  config.access_token = ENV["OPENAI_API_KEY"]
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

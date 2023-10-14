@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"system","content":"You
+        are a helpful assistant."},{"role":"user","content":"What is the weather like
+        in New York?"}],"temperature":0.5,"functions":[{"name":"WeatherFunction","description":"Get
+        the current weather forecast for a given location.","parameters":{"type":"object","properties":{"location":{"type":"string","description":"The
+        city and state eg. ''Miami, FL''"},"unit":{"type":"string","description":"The
+        unit of measurement for the temperature. Defaults to celsius.","enum":["celsius","fahrenheit"]}},"required":["location"]}}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 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
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 14 Oct 2023 14:34:52 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-3.5-turbo-0613
+      Openai-Organization:
+      - summarizelyai
+      Openai-Processing-Ms:
+      - '343'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '1000000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '999965'
+      X-Ratelimit-Reset-Requests:
+      - 6ms
+      X-Ratelimit-Reset-Tokens:
+      - 2ms
+      X-Request-Id:
+      - 1d4729b9df2504c074d221c57a14089c
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81608bac197f12a7-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-89a16BabinYjHzIG3XB3vfQF1S68O",
+          "object": "chat.completion",
+          "created": 1697294092,
+          "model": "gpt-3.5-turbo-0613",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": null,
+                "function_call": {
+                  "name": "WeatherFunction",
+                  "arguments": "{\n  \"location\": \"New York\"\n}"
+                }
+              },
+              "finish_reason": "function_call"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 101,
+            "completion_tokens": 17,
+            "total_tokens": 118
+          }
+        }
+  recorded_at: Sat, 14 Oct 2023 14:34:52 GMT
+recorded_with: VCR 6.2.0

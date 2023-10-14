@@ -3,7 +3,7 @@
 module Funky
   module Functions
     class BaseFunction
-      attr_reader :bot
+      attr_reader :bot, :params
       def initialize(bot, params = {})
         @bot = bot
         @params = params

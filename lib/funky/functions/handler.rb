@@ -17,7 +17,7 @@ module Funky
       private
 
       def function_data
-        constantize_function.new(bot).execute(bot.params)
+        constantize_function.new(bot, bot.params).execute
       end
 
       def constantize_function
