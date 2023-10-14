@@ -13,7 +13,15 @@ RSpec.describe Funky do
         config.access_token = "123"
       end
 
-      expect(bot.access_token).to eq("123")
+      expect(Funky.access_token).to eq("123")
+    end
+
+    it "sets a functions path from config" do
+      Funky.config do |config|
+        config.functions_path = "/foo/bar"
+      end
+
+      expect(Funky.functions_path).to eq("/foo/bar")
     end
   end
 end
