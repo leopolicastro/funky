@@ -9,7 +9,3 @@ end
 
 bot = Funky::Bot.new
 bot.ask("What is the weather in Miami, FL?")
-# bot.ask("What's the price of Bitcoin?")
-# p bot.history
-p bot.last_response
-pp bot.history.messages
