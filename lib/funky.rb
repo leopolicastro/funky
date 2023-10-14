@@ -33,6 +33,8 @@ module Funky
       @params = params
       @response = {}
       history.chronicle("system", initial_prompt)
+      # Require all the files in the functions directory.
+      Dir["#{Funky.functions_path}/**/*.rb"].sort.each { |file| require file }
     end
 
     def ask(question)
