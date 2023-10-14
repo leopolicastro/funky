@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "funky"
+require "dotenv/load"
+require "vcr"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

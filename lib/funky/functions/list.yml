@@ -1,0 +1,15 @@
+functions:
+  - name: WeatherFunction
+    description: Get the current weather forecast for a given location.
+    parameters:
+      type: object
+      properties:
+        location:
+          type: string
+          description: The city and state eg. 'Miami, FL'
+        unit:
+          type: string
+          description: The unit of measurement for the temperature. Defaults to celsius.
+          enum: [celsius, fahrenheit]
+      required:
+        - location
